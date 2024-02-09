@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Créer un nouvel atelier</title>
+    <!-- Ajouter le lien vers Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <!-- Titre de la page -->
+        <h2 class="mt-4">Créer un nouvel atelier</h2>
+
+        <!-- Formulaire pour créer un nouvel atelier -->
+        <form th:action="@{/ateliers/create}" th:object="${atelier}" method="post">
+            <!-- Champ pour saisir le nom de l'atelier -->
+            <div class="form-group">
+                <label for="nom">Nom:</label>
+                <input type="text" id="nom" name="nom" class="form-control" th:field="*{nom}" required/>
+            </div>
+
+            <!-- Champ pour saisir la description de l'atelier -->
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" class="form-control" th:field="*{description}" required></textarea>
+            </div>
+
+            <!-- Bouton pour soumettre le formulaire -->
+            <button type="submit" class="btn btn-primary">Enregistrer</button>
+        </form>
+
+        <!-- Lien pour revenir à la liste des ateliers -->
+        <a th:href="@{/ateliers}" class="btn btn-secondary mt-3">Retour à la liste des ateliers</a>
+    </div>
+
+    <!-- Ajouter les scripts Bootstrap JavaScript (si nécessaire) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+</html>

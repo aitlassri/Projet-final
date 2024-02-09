@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Vue du client</title>
+    <!-- Ajouter le lien vers Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <!-- Titre de la page -->
+        <h2 class="mt-4">Détails du client</h2>
+
+        <!-- Liste de définitions pour afficher les détails du client -->
+        <dl class="row">
+            <!-- Élément de liste de définition pour l'ID du client -->
+            <dt class="col-sm-3">ID</dt>
+            <!-- Valeur de l'ID du client -->
+            <dd class="col-sm-9" th:text="${client.id}"></dd>
+
+            <!-- Élément de liste de définition pour le nom du client -->
+            <dt class="col-sm-3">Nom</dt>
+            <!-- Valeur du nom du client -->
+            <dd class="col-sm-9" th:text="${client.nom}"></dd>
+
+            <!-- Élément de liste de définition pour l'email du client -->
+            <dt class="col-sm-3">Email</dt>
+            <!-- Valeur de l'email du client -->
+            <dd class="col-sm-9" th:text="${client.email}"></dd>
+        </dl>
+
+        <!-- Lien pour retourner à la liste des clients -->
+        <a th:href="@{/clients}" class="btn btn-primary">Retour à la liste des clients</a>
+    </div>
+
+    <!-- Ajouter les scripts Bootstrap JavaScript (si nécessaire) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+</html>

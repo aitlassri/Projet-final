@@ -1,0 +1,44 @@
+[
+  {
+    "devise": "CAD",
+    "image": "depense.png",
+    "numero": "C-0001",
+    "solde": 1600.0,
+    "typeCompte": "Cheque"
+  },
+  {
+    "devise": "USD",
+    "image": "epargne.png",
+    "numero": "C-0002",
+    "solde": 2700.0,
+    "typeCompte": "Epargne"
+  },
+  {
+    "devise": "CAD",
+    "image": "investissement.png",
+    "numero": "C-0003",
+    "solde": 3200.0,
+    "typeCompte": "Investissement"
+  },
+  {
+    "devise": "EUR",
+    "image": "epargne.png",
+    "numero": "C-0004",
+    "solde": 4000.0,
+    "typeCompte": "Epargne"
+  },
+  {
+    "devise": "CAD",
+    "image": "depense.png",
+    "numero": "C-0005",
+    "solde": 5000.0,
+    "typeCompte": "Cheque"
+  },
+  {
+    "devise": "US",
+    "image": "image_par_defaut",
+    "numero": "C-0009",
+    "solde": 15000.0,
+    "typeCompte": "Cheque"
+  }
+]

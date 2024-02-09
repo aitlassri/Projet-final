@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Modifier la réservation</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+    <h2 class="mb-4">Modifier la réservation</h2>
+
+    <form th:action="@{'/reservations/' + ${reservation.id} + '/edit'}" method="POST">
+        <input type="hidden" name="id" th:value="${reservation.id}" />
+
+        <div class="form-group">
+            <label>Date de réservation:</label>
+            <input type="datetime-local" class="form-control" name="dateReservation" th:value="${reservation.dateReservation}" required />
+        </div>
+
+        <div class="form-group">
+            <label for="clientId">Client:</label>
+            <select id="clientId" name="clientId" class="form-control" required>
+                <option value="">Sélectionner un client</option>
+                <option th:each="client : ${clients}" th:value="${client.id}" th:text="${client.nom}" th:selected="${client.id == reservation.client.id}"></option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="atelierId">Atelier:</label>
+            <select id="atelierId" name="atelierId" class="form-control" required>
+                <option value="">Sélectionner un atelier</option>
+                <option th:each="atelier : ${ateliers}" th:value="${atelier.id}" th:text="${atelier.nom}" th:selected="${atelier.id == reservation.atelier.id}"></option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Modifier la réservation</button>
+    </form>
+
+    <a th:href="@{/reservations}" class="btn btn-secondary mt-3">Annuler</a>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+</html>

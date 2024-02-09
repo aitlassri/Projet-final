@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Vue de la réservation</title>
+    <!-- Ajouter le lien vers Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Conteneur principal avec la classe Bootstrap 'container' -->
+    <div class="container">
+        <!-- Titre de la page avec la classe Bootstrap 'mb-4' pour la marge inférieure -->
+        <h2 class="mb-4">Détails de la réservation</h2>
+
+        <!-- Liste de définitions avec la classe Bootstrap 'list-group' pour un style amélioré -->
+        <dl class="list-group">
+            <!-- ID de la réservation avec la classe Bootstrap 'list-group-item' pour chaque élément de la liste -->
+            <dt class="list-group-item">ID</dt>
+            <dd class="list-group-item" th:text="${reservation.id}"></dd>
+
+            <!-- Date de réservation -->
+            <dt class="list-group-item">Date de réservation</dt>
+            <dd class="list-group-item" th:text="${reservation.dateReservation}"></dd>
+
+            <!-- Nom du client -->
+            <dt class="list-group-item">Client</dt>
+            <dd class="list-group-item" th:text="${reservation.client.nom}"></dd>
+
+            <!-- Nom de l'atelier -->
+            <dt class="list-group-item">Atelier</dt>
+            <dd class="list-group-item" th:text="${reservation.atelier.nom}"></dd>
+        </dl>
+
+       <!-- Bouton pour supprimer la réservation avec la classe Bootstrap 'btn btn-danger' -->
+		<form th:action="@{/reservations/{id}/delete(id=${reservation.id})}" method="GET">
+		    <button type="submit" class="btn btn-danger">Supprimer la réservation</button>
+		</form>
+
+ 		<!-- Lien pour modifier la réservation avec la classe Bootstrap 'btn btn-warning' -->
+        <a th:href="@{/reservations/{id}/edit(id=${reservation.id})}" class="btn btn-warning mt-3">Modifier la réservation</a>
+
+
+        <!-- Lien pour retourner à la liste des réservations avec la classe Bootstrap 'btn btn-primary' -->
+        <a th:href="@{/reservations}" class="btn btn-primary mt-3">Retour à la liste des réservations</a>
+    </div>
+
+    <!-- Ajouter les scripts Bootstrap JavaScript (si nécessaire) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+</html>

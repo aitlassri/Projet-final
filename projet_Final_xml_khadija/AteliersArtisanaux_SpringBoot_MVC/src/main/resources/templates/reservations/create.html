@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Créer une nouvelle réservation</title>
+    <!-- Ajouter les liens vers Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Ajouter votre propre fichier CSS pour les styles personnalisés -->
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Titre de la page -->
+    <h2>Créer une nouvelle réservation</h2>
+
+    <!-- Formulaire pour créer une nouvelle réservation avec classes Bootstrap -->
+	<form action="/reservations/create" method="post" class="container">
+	    <!-- Champs pour la date de réservation avec classes Bootstrap -->
+	    <div class="form-group">
+	        <label for="dateReservation">Date de réservation:</label>
+	        <input type="datetime-local" id="dateReservation" name="dateReservation" required class="form-control">
+	    </div>
+	
+	    <!-- Champs de sélection pour le client avec classes Bootstrap -->
+	    <div class="form-group">
+	        <label for="clientId">Client:</label>
+	        <select id="clientId" name="clientId" required class="form-control">
+	            <option value="">Sélectionner un client</option>
+	            <!-- Boucle pour afficher les options de sélection -->
+	            <option th:each="client : ${clients}" th:value="${client.id}" th:text="${client.nom}"></option>
+	        </select>
+	    </div>
+	
+	    <!-- Champs de sélection pour l'atelier avec classes Bootstrap -->
+	    <div class="form-group">
+	        <label for="atelierId">Atelier:</label>
+	        <select id="atelierId" name="atelierId" required class="form-control">
+	            <option value="">Sélectionner un atelier</option>
+	            <!-- Boucle pour afficher les options de sélection -->
+	            <option th:each="atelier : ${ateliers}" th:value="${atelier.id}" th:text="${atelier.nom}"></option>
+	        </select>
+	    </div>
+	
+	    <!-- Bouton de soumission du formulaire avec classe Bootstrap -->
+	    <button type="submit" class="btn btn-primary">Créer la réservation</button>
+	</form>
+
+    <!-- Lien pour retourner à la liste des réservations -->
+    <a th:href="@{/reservations}" class="btn btn-secondary mt-3">Retour à la liste des réservations</a>
+
+    <!-- Ajouter les scripts Bootstrap JavaScript (si nécessaire) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+</html>
