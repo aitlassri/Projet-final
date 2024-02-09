@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Liste des clients</title>
+    <!-- Ajouter le lien vers Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <h2 class="mt-4">Liste des clients</h2>
+
+        <!-- Tableau pour afficher la liste des clients -->
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+                <!-- En-tête du tableau -->
+                <tr>
+                    <th>ID</th>
+                    <th>Nom</th>
+                    <th>Email</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Boucle pour parcourir la liste des clients et afficher chaque client -->
+                <tr th:each="client : ${clients}">
+                    <!-- Cellule pour afficher l'ID du client -->
+                    <td th:text="${client.id}"></td>
+                    <!-- Cellule pour afficher le nom du client -->
+                    <td th:text="${client.nom}"></td>
+                    <!-- Cellule pour afficher l'email du client -->
+                    <td th:text="${client.email}"></td>
+                    <!-- Cellule avec un lien pour voir les détails du client -->
+                    <td>
+                        <a th:href="@{/clients/{id}(id=${client.id})}" class="btn btn-primary">Voir</a>
+                       
+                    </td>
+                    
+                       
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Lien pour créer un nouveau client -->
+        <a th:href="@{/clients/create}" class="btn btn-success">Créer un nouveau client</a>
+     
+     <!-- Bouton pour retourner au menu avec la classe Bootstrap 'btn btn-secondary' -->			
+       <button class="btn btn-secondary" onclick="window.location.href='/'">Retour au menu</button>
+                   
+    </div>
+
+    <!-- Ajouter les scripts Bootstrap JavaScript (si nécessaire) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+</html>

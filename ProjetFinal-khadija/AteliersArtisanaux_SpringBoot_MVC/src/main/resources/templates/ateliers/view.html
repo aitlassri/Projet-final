@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Vue de l'atelier</title>
+    <!-- Ajouter le lien vers Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <!-- Titre de la page -->
+        <h2 class="mt-4">Détails de l'atelier</h2>
+
+        <!-- Liste de définitions pour afficher les détails de l'atelier -->
+        <dl class="row">
+            <!-- Elément de la liste de définitions pour l'ID de l'atelier -->
+            <dt class="col-sm-3">ID</dt>
+            <dd class="col-sm-9" th:text="${atelier.id}"></dd>
+
+            <!-- Elément de la liste de définitions pour le nom de l'atelier -->
+            <dt class="col-sm-3">Nom</dt>
+            <dd class="col-sm-9" th:text="${atelier.nom}"></dd>
+
+            <!-- Elément de la liste de définitions pour la description de l'atelier -->
+            <dt class="col-sm-3">Description</dt>
+            <dd class="col-sm-9" th:text="${atelier.description}"></dd>
+        </dl>
+
+        <!-- Lien pour revenir à la liste des ateliers -->
+        <a th:href="@{/ateliers}" class="btn btn-secondary">Retour à la liste des ateliers</a>
+    </div>
+
+    <!-- Ajouter les scripts Bootstrap JavaScript (si nécessaire) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+</html>

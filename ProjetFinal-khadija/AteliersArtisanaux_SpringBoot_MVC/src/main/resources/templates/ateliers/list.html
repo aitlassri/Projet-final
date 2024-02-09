@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Liste des ateliers</title>
+    <!-- Ajouter le lien vers Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <!-- Titre de la page -->
+        <h2 class="mt-4">Liste des ateliers</h2>
+
+        <!-- Tableau pour afficher la liste des ateliers -->
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <!-- Colonnes du tableau -->
+                    <th>ID</th>
+                    <th>Nom</th>
+                    <th>Description</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Boucle sur la liste des ateliers pour afficher chaque atelier -->
+                <tr th:each="atelier : ${ateliers}">
+                    <!-- Cellules contenant les informations de chaque atelier -->
+                    <td th:text="${atelier.id}"></td>
+                    <td th:text="${atelier.nom}"></td>
+                    <td th:text="${atelier.description}"></td>
+                    <!-- Colonne pour l'action (voir le détail de l'atelier) -->
+                    <td>
+                        <!-- Lien pour voir le détail de l'atelier -->
+                        <a th:href="@{/ateliers/{id}(id=${atelier.id})}" class="btn btn-info">Voir</a>
+                    
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Lien pour créer un nouvel atelier -->
+        <a th:href="@{/ateliers/create}" class="btn btn-primary">Créer un nouvel atelier</a>
+    <!-- Bouton pour retourner au menu avec la classe Bootstrap 'btn btn-secondary' -->			
+       <button class="btn btn-secondary" onclick="window.location.href='/'">Retour au menu</button>
+   
+    </div>
+
+    <!-- Ajouter les scripts Bootstrap JavaScript (si nécessaire) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+</html>
